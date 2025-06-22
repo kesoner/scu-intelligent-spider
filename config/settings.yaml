@@ -1,0 +1,140 @@
+# 東吳大學爬蟲專案配置檔案
+
+# 基本設定
+app:
+  name: "SCU Spider"
+  version: "1.0.0"
+  description: "東吳大學網站爬蟲系統"
+
+# 網站配置
+websites:
+  base_url: "https://web-ch.scu.edu.tw"
+  news_url: "https://news.scu.edu.tw"
+  
+  # 人事資料相關
+  personnel:
+    menu_url: "/personnel/web_page/1257"
+    categories:
+      - name: "人事異動公告"
+        id: 1333
+      - name: "教學及行政單位主管名冊"
+        id: 1334
+      - name: "教職員工人數統計表"
+        id: 1335
+      - name: "徵才公告"
+        id: 1336
+      - name: "委員會名錄"
+        id: 1337
+      - name: "服務傑出職工暨獎勵公告"
+        id: 1338
+      - name: "專業技術人員相關經歷公告"
+        id: 14008
+  
+  # 新聞相關
+  news:
+    category_url: "/news-8"
+    max_pages: 50
+    articles_per_page: 20
+
+# 爬蟲設定
+crawler:
+  # 請求設定
+  headers:
+    user_agent: "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/137.0.0.0 Safari/537.36"
+  
+  # 延遲設定
+  delays:
+    request_delay: 1.0  # 請求間隔（秒）
+    retry_delay: 5.0    # 重試延遲（秒）
+    max_retries: 3      # 最大重試次數
+  
+  # 超時設定
+  timeouts:
+    connect: 10
+    read: 30
+
+# 資料儲存
+storage:
+  # 原始資料目錄
+  raw_data_dir: "data/raw"
+  
+  # 處理後資料目錄
+  processed_data_dir: "data/processed"
+  
+  # 向量資料庫目錄
+  vector_db_dir: "data/vector_db"
+  
+  # 檔案名稱
+  files:
+    pdf_links: "pdf_links.txt"
+    news_texts: "news_texts.txt"
+    personnel_data: "personnel_data.json"
+    news_data: "news_data.json"
+
+# 向量化設定
+vectorization:
+  # 嵌入模型
+  embedding_model: "sentence-transformers/paraphrase-multilingual-MiniLM-L12-v2"
+  
+  # 向量資料庫設定
+  vector_store:
+    type: "faiss"
+    dimension: 384
+    index_type: "IndexFlatIP"
+  
+  # 文本處理
+  text_processing:
+    chunk_size: 1000
+    chunk_overlap: 200
+    max_tokens: 8192
+
+# 日誌設定
+logging:
+  level: "INFO"
+  format: "{time:YYYY-MM-DD HH:mm:ss} | {level} | {name}:{function}:{line} | {message}"
+  file: "logs/spider.log"
+  rotation: "1 day"
+  retention: "30 days"
+
+# 文件類型設定
+document_types:
+  supported_extensions:
+    - ".pdf"
+    - ".doc"
+    - ".docx"
+    - ".xls"
+    - ".xlsx"
+    - ".ppt"
+    - ".pptx"
+    - ".csv"
+    - ".odt"
+    - ".ods"
+    - ".odp"
+    - ".rtf"
+
+# 語言模型設定 (RAG)
+llm:
+  # OpenAI 設定
+  openai:
+    api_key: ""  # 請在 .env 檔案中設定 OPENAI_API_KEY
+    model: "gpt-3.5-turbo"
+    max_tokens: 500
+    temperature: 0.7
+
+  # 本地模型設定
+  local:
+    model_name: "ckiplab/gpt2-base-chinese"
+    max_length: 512
+    temperature: 0.7
+    device: "auto"  # auto, cpu, cuda
+
+  # Ollama 設定
+  ollama:
+    base_url: "http://localhost:11434"
+    model: "llama2"
+    timeout: 30
+
+# 向量搜尋設定
+vector_search:
+  similarity_threshold: 0.3
+  max_results: 10

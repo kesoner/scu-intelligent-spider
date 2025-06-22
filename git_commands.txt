@@ -1,0 +1,52 @@
+# 🚀 GitHub 上傳命令
+
+## 在命令提示字元中執行以下命令：
+
+# 1. 初始化 Git 倉庫
+git init
+
+# 2. 設定 Git 配置（如果還沒設定過）
+git config user.name "Your Name"
+git config user.email "your.email@example.com"
+
+# 3. 添加所有文件
+git add .
+
+# 4. 建立初始提交
+git commit -m "Initial commit: 東吳大學智能爬蟲系統 - AI 驅動的知識管理平台"
+
+# 5. 連接到 GitHub 倉庫（請替換為你的實際倉庫 URL）
+git remote add origin https://github.com/your-username/scu-intelligent-spider.git
+
+# 6. 設定主分支
+git branch -M main
+
+# 7. 推送到 GitHub
+git push -u origin main
+
+## 🎯 倉庫建議設定：
+
+倉庫名稱: scu-intelligent-spider
+描述: 🕷️ 東吳大學智能爬蟲系統 - 結合 AI 問答、向量搜尋和 Web 介面的現代化知識管理平台
+Topics: python, fastapi, nextjs, ai, rag, gemini, web-scraping, vector-search, typescript, react
+
+## 📁 專案結構確認：
+
+✅ README.md - 完整專案說明
+✅ main.py - 主程式入口  
+✅ requirements.txt - Python 依賴
+✅ LICENSE - MIT 授權
+✅ .gitignore - Git 忽略規則
+✅ src/ - 核心程式碼
+✅ backend/ - FastAPI 後端
+✅ frontend/ - Next.js 前端
+✅ config/ - 配置文件
+✅ data/ - 資料目錄（含 .gitkeep）
+✅ logs/ - 日誌目錄（含 .gitkeep）
+
+## 🎉 上傳完成後：
+
+1. 在 GitHub 倉庫頁面設定 Topics
+2. 編輯倉庫描述
+3. 檢查 README.md 顯示效果
+4. 設定 GitHub Pages（如果需要）

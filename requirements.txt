@@ -1,0 +1,46 @@
+# 網路爬蟲核心套件
+requests>=2.31.0
+beautifulsoup4>=4.12.0
+lxml>=4.9.0
+
+# 資料處理
+pandas>=2.0.0
+numpy>=1.24.0
+
+# 向量化搜尋與 AI
+llama-index-core>=0.12.0
+llama-index-embeddings-huggingface>=0.5.0
+llama-index-vector-stores-faiss>=0.4.0
+sentence-transformers>=4.1.0
+faiss-cpu>=1.11.0
+
+# 配置管理
+pyyaml>=6.0.0
+python-dotenv>=1.0.0
+
+# 命令列介面
+click>=8.1.0
+rich>=13.0.0
+
+# 日誌記錄
+loguru>=0.7.0
+
+# Web 框架 (FastAPI 後端)
+fastapi>=0.104.0
+uvicorn[standard]>=0.24.0
+pydantic>=2.5.0
+python-multipart>=0.0.6
+
+# AI 和機器學習
+google-generativeai>=0.3.0
+transformers>=4.30.0
+torch>=2.0.0
+
+# 測試
+pytest>=7.4.0
+pytest-cov>=4.1.0
+
+# 開發工具
+black>=23.0.0
+flake8>=6.0.0
+mypy>=1.5.0

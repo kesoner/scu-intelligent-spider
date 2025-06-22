@@ -1,0 +1,24 @@
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# 現有專案依賴
+click==8.1.7
+rich==13.7.0
+pyyaml==6.0.1
+requests==2.31.0
+beautifulsoup4==4.12.2
+loguru==0.7.2
+python-dotenv==1.0.0
+
+# 向量搜尋依賴
+llama-index-core
+llama-index-embeddings-huggingface
+llama-index-vector-stores-faiss
+sentence-transformers
+faiss-cpu
+
+# 文本處理依賴
+transformers
+torch
